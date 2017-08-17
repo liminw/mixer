@@ -16,6 +16,9 @@ package adapter
 
 // Registrar is used by adapters to register aspect builders.
 type Registrar interface {
+	// RegisterAuthzBuilder registers a new Authz builder.
+	RegisterAuthzBuilder(AuthzBuilder)
+
 	// RegisterListsBuilder registers a new ListChecker builder.
 	RegisterListsBuilder(ListsBuilder)
 

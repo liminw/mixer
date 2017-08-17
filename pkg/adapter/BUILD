@@ -9,6 +9,7 @@ go_library(
         "adapter.go",
         "applicationLogs.go",
         "attributes.go",
+        "authz.go",
         "builder.go",
         "builderInfo.go",
         "cacheability.go",

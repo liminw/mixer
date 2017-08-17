@@ -8,6 +8,7 @@ go_library(
         "accessLogsManager.go",
         "applicationLogsManager.go",
         "attrgenmgr.go",
+        "authzManager.go",
         "checkManager.go",
         "common.go",
         "denialsManager.go",

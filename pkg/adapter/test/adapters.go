@@ -30,6 +30,7 @@ type fakeRegistrar struct {
 	quotas        []adapter.QuotasBuilder
 	metrics       []adapter.MetricsBuilder
 	attributesGen []adapter.AttributesGeneratorBuilder
+	authz         []adapter.AuthzBuilder
 }
 
 func (r *fakeRegistrar) RegisterListsBuilder(b adapter.ListsBuilder) {
@@ -58,6 +59,10 @@ func (r *fakeRegistrar) RegisterMetricsBuilder(b adapter.MetricsBuilder) {
 
 func (r *fakeRegistrar) RegisterAttributesGeneratorBuilder(b adapter.AttributesGeneratorBuilder) {
 	r.attributesGen = append(r.attributesGen, b)
+}
+
+func (r *fakeRegistrar) RegisterAuthzBuilder(b adapter.AuthzBuilder) {
+	r.authz = append(r.authz, b)
 }
 
 // AdapterInvariants ensures that adapters implement expected semantics.

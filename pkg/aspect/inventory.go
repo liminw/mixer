@@ -31,6 +31,7 @@ func Inventory() ManagerInventory {
 		Check: []CheckManager{
 			newDenialsManager(),
 			newListsManager(),
+			newAuthzManager(),
 		},
 
 		Report: []ReportManager{

@@ -15,6 +15,7 @@
 package adapter
 
 import (
+	"istio.io/mixer/adapter/authz"
 	"istio.io/mixer/adapter/denyChecker"
 	"istio.io/mixer/adapter/genericListChecker"
 	"istio.io/mixer/adapter/ipListChecker"
@@ -32,6 +33,7 @@ import (
 // Inventory returns the inventory of all available adapters.
 func Inventory() []adapter.RegisterFn {
 	return []adapter.RegisterFn{
+		authz.Register,
 		denyChecker.Register,
 		genericListChecker.Register,
 		ipListChecker.Register,

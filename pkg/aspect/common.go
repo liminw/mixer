@@ -61,6 +61,14 @@ func FromBuilder(builder adapter.Builder, kind cfg.Kind) (CreateAspectFunc, erro
 		return func(env adapter.Env, c adapter.Config, _ ...interface{}) (adapter.Aspect, error) {
 			return b.BuildAttributesGenerator(env, c)
 		}, nil
+	case cfg.AuthzKind:
+		b, ok := builder.(adapter.AuthzBuilder)
+		if !ok {
+			return nil, fmt.Errorf("invalid builder - kind AuthzKind expected builder implementing AuthzBuilder, got builder: %v", builder)
+		}
+		return func(env adapter.Env, c adapter.Config, _ ...interface{}) (adapter.Aspect, error) {
+			return b.NewAuthzAspect(env, c)
+		}, nil
 	case cfg.DenialsKind:
 		b, ok := builder.(adapter.DenialsBuilder)
 		if !ok {

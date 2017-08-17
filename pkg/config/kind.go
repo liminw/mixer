@@ -32,6 +32,7 @@ const (
 	AccessLogsKind
 	ApplicationLogsKind
 	AttributesKind
+	AuthzKind
 	DenialsKind
 	ListsKind
 	MetricsKind
@@ -45,6 +46,7 @@ const (
 	AccessLogsKindName      = "access-logs"
 	ApplicationLogsKindName = "application-logs"
 	AttributesKindName      = "attributes"
+	AuthzKindName           = "authz"
 	DenialsKindName         = "denials"
 	ListsKindName           = "lists"
 	MetricsKindName         = "metrics"
@@ -56,6 +58,7 @@ var kindToString = map[Kind]string{
 	AccessLogsKind:      AccessLogsKindName,
 	ApplicationLogsKind: ApplicationLogsKindName,
 	AttributesKind:      AttributesKindName,
+	AuthzKind:           AuthzKindName,
 	DenialsKind:         DenialsKindName,
 	ListsKind:           ListsKindName,
 	MetricsKind:         MetricsKindName,

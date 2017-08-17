@@ -115,6 +115,11 @@ func (r *registry) RegisterAttributesGeneratorBuilder(b adapter.AttributesGenera
 	r.insert(config.AttributesKind, b)
 }
 
+// RegisterAuthzBuilder registers a new authz builder.
+func (r *registry) RegisterAuthzBuilder(b adapter.AuthzBuilder) {
+	r.insert(config.AuthzKind, b)
+}
+
 func (r *registry) insert(k config.Kind, b adapter.Builder) {
 	bi := r.builders[b.Name()]
 	if bi == nil {

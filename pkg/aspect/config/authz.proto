@@ -1,0 +1,64 @@
+// Copyright 2017 Istio Authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package pkg.aspect.config;
+
+import "gogoproto/gogo.proto";
+
+option go_package="config";
+option (gogoproto.goproto_getters_all) = false;
+option (gogoproto.equal_all) = false;
+option (gogoproto.gostring_all) = false;
+
+// Configures an authz aspect.
+//
+// Example:
+//    kind: authz
+//    params:
+//          target_namespace: target.namespace
+//          service: target.service
+//          path: request.path
+//          verb: request.method
+//          source_namespace: source.namespace
+//          service_account: source.user
+//          groups: request.auth.token[groups]
+//          user: request.auth.token[email]
+message AuthzParams {
+  // Target namespace.
+  string target_namespace = 1;
+
+  // Service.
+  string service = 2;
+
+  // HTTP request path, or gRPC method.
+  string path = 3;
+
+  // HTTP verb.
+  string verb = 4;
+
+  // Source namespace.
+  string source_namespace = 5;
+
+  // The client service account.
+  string service_account = 6;
+
+  // The end user.
+  string user = 7;
+
+  // The groups the cient belongs to.
+  string groups = 8;
+}
+
